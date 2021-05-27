@@ -6,9 +6,9 @@
             <h4 class="pb-3">My Tasks</h4>
         </div>
         <div class="float-end">
-            <a href="{{ route('task.create') }}" class="btn btn-info">
-               <i class="fa fa-plus-circle"></i> Create Task
-            </a>
+        <button  onclick="location.href = 'http://127.0.0.1:8000/task/create';" type="button" class="btn-warning1 btn-circle btn-xl"><i class="fa fa-plus"></i>
+                            </button>
+                
         </div>
         <div class="clearfix"></div>
     </div>
@@ -72,13 +72,12 @@
     @endforeach
 
     @if (count($tasks) === 0)
-        <div class="alert alert-danger p-2">
-            No Task Found. Please Create one task
+        <div class="alert alert-success  p-2">
+            No task found, Looks like everything's organized in the right place
             <br>
             <br>
-            <a href="{{ route('task.create') }}" class="btn btn-info">
-                <i class="fa fa-plus-circle"></i> Create Task
-             </a>
+          
+        
         </div>
     @endif
 

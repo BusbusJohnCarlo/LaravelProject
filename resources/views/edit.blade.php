@@ -3,11 +3,11 @@
 @section('main-content')
     <div>
         <div class="float-start">
-            <h4 class="pb-3">Edit Task <span class="badge bg-info">{{ $task->title }}</span></h4>
+            <h4 class="pb-3" >Edit Task <span class="badge orangeBG" >{{ $task->title }}</span></h4>
         </div>
         <div class="float-end">
-            <a href="{{ route('index') }}" class="btn btn-info">
-                <i class="fa fa-arrow-left"></i> All Task
+            <a href="{{ route('index') }}" class="btn orangeBG" >
+                <i class="fa fa-arrow-left" style="color: white;"></i> All Task
             </a>
         </div>
         <div class="clearfix"></div>
@@ -25,6 +25,10 @@
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea type="text" class="form-control" id="description" name="description" rows="5">{{ $task->description }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="due_date" class="form-label">Due Date</label>
+                <input type="date" class="form-control" id="due_date" name="due_date" value="{{ $task->due_date }}">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Status</label>

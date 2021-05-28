@@ -121,6 +121,11 @@
             background-color: #04AA6D;
             color: white;
           }
+          .orangeBG{
+          background-color: #db4c3f;
+          border-color: #db4c3f; 
+          color: white;
+          }
         }
         </style>
 
@@ -134,8 +139,8 @@
        
               
             <div class="sidebar">
-            <a class="list-group-item list-group-item-action bg-light" href="{{ route('index') }}"> <i class="fas fa-inbox"></i> Task App</a>
-            <a class="list-group-item list-group-item-action bg-light" aria-current="page" href="{{ route('index') }}"><i class="fas fa-home"></i> Home</a>
+            <a class="list-group-item list-group-item-action bg-light" href="{{ route('index') }}"> <i class="fas fa-home"></i> Home</a>
+            <a class="list-group-item list-group-item-action bg-light" aria-current="page" href="{{ route('overdue') }}"><i class="fas fa-exclamation-circle  "></i> Overdue Tasks</a>
             <a class="list-group-item list-group-item-action bg-light" href="{{ route('task.create') }}"><i class="fas fa-clipboard"></i> New Task</a>
             </div>    
         </div>

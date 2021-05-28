@@ -15,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [TaskController::class, 'index'])->name('index');
+Route::get('/overdue', [TaskController::class, 'overdue'])->name('overdue');
+
 Route::resource('task', TaskController::class);

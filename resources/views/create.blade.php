@@ -6,7 +6,7 @@
             <h4 class="pb-3">Create Task</h4>
         </div>
         <div class="float-end">
-            <a href="{{ route('index') }}" class="btn btn-info">
+            <a href="{{ route('index') }}" class="btn orangeBG">
                 <i class="fa fa-arrow-left"></i> All Task
             </a>
         </div>
@@ -23,6 +23,10 @@
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea type="text" class="form-control" id="description" name="description" rows="5"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="duedate" class="form-label">Due Date</label>
+                <input type="date" class="form-control" id="due_date" name="due_date">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Status</label>

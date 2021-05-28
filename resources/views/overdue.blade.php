@@ -3,8 +3,9 @@
 @section('main-content')
     <div>
         <div class="float-start">
-            <h4 class="pb-3">Yay! Today is {{ now()->format('l') }}</h4>
-            <p> Looking Great</p>
+            <h4 class="pb-3">Overdue task </h4>
+            <p> Seems an important event occured?</p>
+       
         </div>
         <div class="float-end">
         <button  onclick="location.href = 'http://127.0.0.1:8000/task/create';" type="button" class="btn-warning1 btn-circle btn-xl"><i class="fa fa-plus"></i>

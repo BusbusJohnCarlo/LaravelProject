@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Quote;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class TaskController extends Controller
 {
@@ -17,7 +18,13 @@ class TaskController extends Controller
         $tasks = Task::orderBy('id', 'desc')->get();
         return view('index', compact('tasks'));
     }
-
+    public function overdue()
+    {
+     
+        
+        $tasks = Task::orderBy('id', 'desc')->get();
+        return view('overdue', compact('tasks'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -46,13 +53,17 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+       // dd($request->all());
+
         $request->validate([
-            'title' => 'required'
+            'title' => 'required',
+            
         ]);
 
         $task = new Task();
         $task->title = $request->title;
         $task->description = $request->description;
+        $task->due_date = $request->due_date;
         $task->status = $request->status;
         $task->save();
         return redirect()->route('index');
@@ -107,6 +118,7 @@ class TaskController extends Controller
 
         $task->title = $request->title;
         $task->description = $request->description;
+        $task->due_date = $request->due_date;
         $task->status = $request->status;
         $task->save();
         return redirect()->route('index');
@@ -123,5 +135,12 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->delete();
         return redirect()->route('index');
+    }
+    
+    public function getQuote(){
+        $quote = quote::all()->random(1)[0]->quote;
+        return view("/", ["quote=>$quote"]);
+
+        //return quote::all()->random(1);
     }
 }

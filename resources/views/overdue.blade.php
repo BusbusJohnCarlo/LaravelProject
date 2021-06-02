@@ -4,14 +4,14 @@
     <div>
         <div class="float-start">
             <h4 class="pb-3">Overdue task </h4>
-            <p> Seems an important event occured?</p>
+     <p>It seems an emergency occured, let's try again!</p>
        
         </div>
-        <div class="float-end">
+        <!-- <div class="float-end">
         <button  onclick="location.href = 'http://127.0.0.1:8000/task/create';" type="button" class="btn-warning1 btn-circle btn-xl"><i class="fa fa-plus"></i>
                             </button>
                 
-        </div>
+        </div> -->
         <div class="clearfix"></div>
     </div>
 
@@ -19,12 +19,14 @@
         <div class="card mt-3">
             <h5 class="card-header">
                 @if ($task->status === 'Todo')
+              
                     {{ $task->title }}
                 @else
                     {{ $task->title }}
                 @endif
 
-                <span class="badge rounded-pill bg-warning text-dark">
+               
+                <span class="badge rounded-pill bg-danger text-light">
                     {{ $task->created_at->diffForHumans() }}
                 </span>
             </h5>

@@ -2,17 +2,20 @@
 
 @section('main-content')
     <div>
-   
         <div class="float-start">
-            <h4 class="pb-3">Yay! Today is {{ now()->format('l') }}</h4>
-            <p> “No matter how busy you may think you are, you must find time for reading, or surrender yourself to self-chosen ignorance.”
-― Atwood H. Townsend </p>
+            <h4 class="pb-3">Finished Task </h4>
+            <p> “You Can not learn anything in life
+unless You do or Face it”
+― Saif Rehman
+ <p>
+       
         </div>
-        <div class="float-end">
+       <!--  <div class="float-end">
         <button  onclick="location.href = 'http://127.0.0.1:8000/task/create';" type="button" class="btn-warning1 btn-circle btn-xl"><i class="fa fa-plus"></i>
                             </button>
                 
-        </div>
+        </div> -->
+        
         <div class="clearfix"></div>
     </div>
 
@@ -20,13 +23,14 @@
         <div class="card mt-3">
             <h5 class="card-header">
                 @if ($task->status === 'Todo')
+              
                     {{ $task->title }}
                 @else
-                 
-                    <del>{{ $task->title }}</del>
+                    {{ $task->title }}
                 @endif
 
-                <span class="badge rounded-pill bg-warning text-dark">
+               
+                <span class="badge rounded-pill bg-success text-light">
                     {{ $task->created_at->diffForHumans() }}
                 </span>
             </h5>
@@ -37,8 +41,7 @@
                         @if ($task->status === 'Todo')
                             {{ $task->description }}
                         @else
-                            
-                            <del>{{ $task->description }}</del>
+                            {{ $task->description }}
                         @endif
                         <br>
 

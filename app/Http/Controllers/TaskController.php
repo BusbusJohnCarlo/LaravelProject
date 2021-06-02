@@ -13,18 +13,38 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $tasks = Task::orderBy('id', 'desc')->get();
+        $stat = 'Done';
+        $date = today()->format('Y-m-d');
+        $tasks = Task::where('due_date', '>=', $date)->where('status', '!=', $stat)->get();
         return view('index', compact('tasks'));
     }
     public function overdue()
     {
+        $stat = 'Done';
+        $date = today()->format('Y-m-d');
+        $tasks = Task::where('due_date', '<', $date)->where('status', '!=', $stat)->get();
+        return view('overdue', compact('tasks'));
+    }
+    public function done()
+    {
+     
+        $stat = 'Done';
+        $tasks = Task::where('status', '=', $stat)->get();
+        return view('Done', compact('tasks'));
+    }
+    /* public function home()
+    {
      
         
         $tasks = Task::orderBy('id', 'desc')->get();
-        return view('overdue', compact('tasks'));
-    }
+        return view('home', compact('tasks'));
+    } */
     /**
      * Show the form for creating a new resource.
      *
@@ -136,11 +156,6 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->route('index');
     }
-    
-    public function getQuote(){
-        $quote = quote::all()->random(1)[0]->quote;
-        return view("/", ["quote=>$quote"]);
 
-        //return quote::all()->random(1);
-    }
+    
 }

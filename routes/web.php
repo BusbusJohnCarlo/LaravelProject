@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [TaskController::class, 'index'])->name('index');
-Route::get('/overdue', [TaskController::class, 'overdue'])->name('overdue');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+Route::get('/overdue', [TaskController::class, 'overdue'])->name('overdue');
+Route::get('/done', [TaskController::class, 'done'])->name('done');
 Route::resource('task', TaskController::class);
+Auth::routes();
+Route::get('/', [TaskController::class, 'index'])->name('index');

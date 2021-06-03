@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Quote;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -16,11 +17,13 @@ class TaskController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+       
     }
     public function index()
     {
         $stat = 'Done';
         $date = today()->format('Y-m-d');
+        
         $tasks = Task::where('due_date', '>=', $date)->where('status', '!=', $stat)->get();
         return view('index', compact('tasks'));
     }
